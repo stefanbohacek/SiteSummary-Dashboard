@@ -1,0 +1,9 @@
+node_modules
+icons
+tests
+src
+jasmine
+\.htaccess
+package.json
+gulpfile.js
+index-alt.html

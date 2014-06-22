@@ -1,0 +1,38 @@
+/*
+	Custom colors, flat design style
+*/
+body {
+  padding-top: 70px;
+}
+h1 {
+  font-family: "Lobster", sans-serif !important;
+  color: #3e3e3e !important;
+}
+.back-to-top .fa {
+  padding-right: 0.5em;
+}
+a,
+a:hover,
+.btn,
+.btn:hover {
+  -webkit-transition: all 0.2s ease-in-out !important;
+  transition: all 0.2s ease-in-out !important;
+}
+.favico {
+  width: 24px;
+  height: 24px;
+}
+.preview {
+  max-width: 100%;
+}
+.jumbotron,
+.panel,
+.navbar {
+  border-radius: 0 !important;
+}
+.browsehappy {
+  margin: .2em 0;
+  background: #fad44c;
+  color: #3e3e3e;
+  padding: 5px;
+}

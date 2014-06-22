@@ -1,0 +1,20 @@
+/* humanstxt.org */
+
+/* TEAM */
+
+Developer & Designer: Stefan Bohacek
+Site: http://fourtonfish.com
+Twitter: @fourtonfish
+Location: Bratislava, Slovakia
+
+/* SITE */
+
+Language: English
+Doctype: HTML5
+IDE: Sublime Text
+
+/* THANKS */
+
+- my wife & son
+- Chris, my very first beta tester (http://cjwworld.cu.cc/)
+- the creators of Bootstrap (http://getbootstrap.com) and Ionicons (http://ionicons.com)

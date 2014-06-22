@@ -1,0 +1,140 @@
+<!doctype html>
+<html itemscope itemtype="//schema.org/WebApplication" ng-app="myApp" >
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="SiteSummary | Dashboard by @fourtonfish" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SiteSummary | Dashboard by @fourtonfish</title>
+	<meta property="og:title" content="SiteSummary | Dashboard by @fourtonfish" />
+	<meta property="og:description" content="SiteSummary | Dashboard by @fourtonfish" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://fourtonfish.com/sitesummary-dashboard/" />
+<!--
+	<meta property="og:image" content="http://fourtonfish.com/sitesummary-dashboard/images/preview.png" />	
+-->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@fourtonfish">
+	<meta name="twitter:title" content="SiteSummary | Dashboard by @fourtonfish">
+	<meta name="twitter:description" content="SiteSummary | Dashboard by @fourtonfish">
+	<meta name="twitter:image:src" content="http://fourtonfish.com/sitesummary-dashboard/images/preview.png">
+	<meta name="twitter:domain" content="http://fourtonfish.com/">
+	<link type="text/plain" rel="author" href="humans.txt" />
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link href='//fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="icons/favicon-144.png">
+	<link rel="shortcut icon" href="icons/favicon.ico"/>
+	<link rel="apple-touch-icon" href="icons/favicon-152.png">
+	<link rel="apple-touch-icon-precomposed" href="icons/favicon-152.png">
+	<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="icons/favicon-64.png">	
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="//feeds.feedburner.com/fourtonfish" />
+</head>
+<body ng-controller="DataCtrl" id="top">
+<!--[if lt IE 7]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a scrolltotop class="navbar-brand" href="#top" title="SiteSummary | Dashboard"><span class="fa fa-list-alt"></span></a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a ng-click="siteSummary()" href="#"><i ng-class="reloader.icon"></i> Reload</a></li>
+			</ul>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input scrolltotop ng-model=" query" type="text" class="form-control" placeholder="Type to search">
+				</div>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="https://twitter.com/fourtonfish" title="twitter.com/fourtonfish"><strong>by @fourtonfish</strong></a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="mailto:stefan@fourtonfish.com?subject=Simple Sharing Buttons Generator" title="Get in touch"><i class="fa fa-envelope"></i> Get in touch</a></li>
+						<li><a href="https://github.com/fourtonfish/SiteSummary-Dashboard" title="Learn more"><i class="fa fa-github"></i> Learn more</a></li>
+						<li class="divider"></li>
+						<li><a href="https://www.gittip.com/Stefan/" title="Support your developer"><i class="fa fa-gittip"></i> Support your developer</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container">
+	<div class="panel panel-default" ng-repeat="site in data | filter: query | orderBy: site.url">
+		<div class="panel-body">
+
+			<div class="row">
+				<div class="col-md-7">
+					<h2>{{site.data.title}}</h2>
+					<h3 class="text-muted"><img class="favico" title="Favico" ng-src="http://{{site.url}}/favicon.ico"> {{site.url}}</h3>
+					<p class="text-muted"><em>{{site.data.description}}</em></p>
+				</div>
+				<div class="col-md-5">
+					<img class="preview" title="Preview image" ng-src="{{site.data.image}}">
+				</div>
+			</div>
+			<br/>
+			<table class="table table-hover table-bordered social-data">
+				<tr>
+					<td><i class="fa fa-twitter"></i> Twitter</td>
+					<td colspan="4">{{site.data.social.twitter.tweets}} tweets</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-facebook"></i> Facebook</td>
+					<td>{{site.data.social.facebook.shared}} shares</td>
+					<td>{{site.data.social.facebook.liked}} likes</td>
+					<td>{{site.data.social.facebook.comments}} comments</td>
+					<td>{{site.data.social.facebook.total}} total</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-google-plus"></i> Google+</td>
+					<td colspan="4">{{site.data.social.googleplus.plusones}} +1s</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-linkedin"></i> LinkedIn</td>
+					<td colspan="4">{{site.data.social.linkedin.shared}} shares</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-pinterest"></i> Pinterest</td>
+					<td colspan="4">{{site.data.social.pinterest.pins}} pins</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-reddit"></i> Reddit</td>
+					<td>score: {{site.data.social.reddit.score}} </td>
+					<td colspan="3">{{site.data.social.reddit.comments}} comments</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-share-square-o"></i>  Total</td>
+					<td colspan="4">{{site.data.social.total}} social interactions</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js">\x3C/script>')</script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+	<script>window.angular || document.write('<script src="js/angular.min.js"><\/script>');</script>
+<script src="js/controllers.min.js"></script>
+<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39782822-1', 'fourtonfish.com');	ga('send', 'pageview');var sc_project=6294985; var sc_invisible=1;var sc_security="d5eddb86";</script><script type="text/javascript" src="//www.statcounter.com/counter/counter.js"></script><noscript><div class="statcounter"><a title="create counter" href="//statcounter.com/free-hit-counter/" target="_blank"><img class="statcounter" src="//c.statcounter.com/6294985/0/d5eddb86/1/" alt="create counter"></a></div></noscript>
+<!-- Thanks for checking out the source code :) Feel free to say hi:  stefan@fourtonfish.com -->
+</body>
+</html>
