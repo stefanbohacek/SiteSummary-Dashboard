@@ -93,36 +93,96 @@
 			<br/>
 			<table class="table table-hover table-bordered social-data">
 				<tr>
-					<td><i class="fa fa-twitter"></i> Twitter</td>
-					<td colspan="4">{{site.data.social.twitter.tweets}} tweets</td>
+					<td><i class="fa fa-fw fa-twitter"></i> Twitter</td>
+					<td colspan="4">
+						<ng-pluralize count="site.data.social.twitter.tweets"
+						when=	"{'0': 'No tweets',
+						'1': '1 tweet',
+						'other': '{{site.data.social.twitter.tweets}} tweets'}">
+						</ng-pluralize>	
+					</td>
 				</tr>
 				<tr>
-					<td><i class="fa fa-facebook"></i> Facebook</td>
-					<td>{{site.data.social.facebook.shared}} shares</td>
-					<td>{{site.data.social.facebook.liked}} likes</td>
-					<td>{{site.data.social.facebook.comments}} comments</td>
-					<td>{{site.data.social.facebook.total}} total</td>
+					<td><i class="fa fa-fw fa-facebook"></i> Facebook</td>
+					<td>
+						<ng-pluralize count="site.data.social.facebook.shared"
+						when=	"{'0': 'Not shared',
+						'1': '1 share',
+						'other': '{{site.data.social.facebook.shared}} shares'}">
+						</ng-pluralize>					
+					</td>
+					<td>
+						<ng-pluralize count="site.data.social.facebook.liked"
+						when=	"{'0': 'No likes',
+						'1': '1 like',
+						'other': '{{site.data.social.facebook.liked}} likes'}">
+						</ng-pluralize>
+					</td>
+					<td>
+						<ng-pluralize count="site.data.social.facebook.comments"
+						when=	"{'0': 'No comments',
+						'1': '1 comment',
+						'other': '{{site.data.social.facebook.comments}} comments'}">
+						</ng-pluralize>
+					</td>
+					<td>
+						<ng-pluralize count="site.data.social.facebook.total"
+						when=	"{'0': 'No interactions',
+						'1': '1 interaction',
+						'other': '{{site.data.social.facebook.liked}} total interactions'}">
+						</ng-pluralize>
+					</td>
 				</tr>
 				<tr>
-					<td><i class="fa fa-google-plus"></i> Google+</td>
-					<td colspan="4">{{site.data.social.googleplus.plusones}} +1s</td>
+					<td><i class="fa fa-fw fa-google-plus"></i> Google+</td>
+					<td colspan="4">
+						<ng-pluralize count="site.data.social.googleplus.plusones"
+						when=	"{'0': 'No +1s',
+						'1': '1 +1',
+						'other': '{{site.data.social.googleplus.plusones}} +1s'}">
+						</ng-pluralize>
+					</td>
 				</tr>
 				<tr>
-					<td><i class="fa fa-linkedin"></i> LinkedIn</td>
-					<td colspan="4">{{site.data.social.linkedin.shared}} shares</td>
+					<td><i class="fa fa-fw fa-linkedin"></i> LinkedIn</td>
+					<td colspan="4">
+						<ng-pluralize count="site.data.social.linkedin.shared"
+						when=	"{'0': 'Not shared',
+						'1': '1 share',
+						'other': '{{site.data.social.linkedin.shared}} shares'}">
+						</ng-pluralize>
+					</td>
 				</tr>
 				<tr>
-					<td><i class="fa fa-pinterest"></i> Pinterest</td>
-					<td colspan="4">{{site.data.social.pinterest.pins}} pins</td>
+					<td><i class="fa fa-fw fa-pinterest"></i> Pinterest</td>
+					<td colspan="4">
+						<ng-pluralize count="site.data.social.pinterest.pins"
+						when=	"{'0': 'Not pinned',
+						'1': '1 pin',
+						'other': '{{site.data.social.pinterest.pins}} pins'}">
+						</ng-pluralize>
+					</td>
 				</tr>
 				<tr>
-					<td><i class="fa fa-reddit"></i> Reddit</td>
-					<td>score: {{site.data.social.reddit.score}} </td>
-					<td colspan="3">{{site.data.social.reddit.comments}} comments</td>
+					<td><i class="fa fa-fw fa-reddit"></i> Reddit</td>
+					<td>Score: {{site.data.social.reddit.score}} </td>
+					<td colspan="3">
+						<ng-pluralize count="site.data.social.reddit.comments"
+						when=	"{'0': 'No comments',
+						'1': '1 comment',
+						'other': '{{site.data.social.reddit.comments}} comments'}">
+						</ng-pluralize>
+					</td>
 				</tr>
 				<tr>
-					<td><i class="fa fa-share-square-o"></i>  Total</td>
-					<td colspan="4">{{site.data.social.total}} social interactions</td>
+					<td><i class="fa fa-fw fa-share-square-o"></i>  Total</td>
+					<td colspan="4">
+						<ng-pluralize count="site.data.social.total"
+						when=	"{'0': 'No  social interactions',
+						'1': '1 social interaction',
+						'other': '{{site.data.social.total}} social interactions'}">
+						</ng-pluralize>
+					</td>
 				</tr>
 			</table>
 		</div>
